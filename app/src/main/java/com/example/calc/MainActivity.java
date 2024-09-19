@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonY;
     private Button buttonDelete;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,30 +38,87 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 textZnak.setText("+");
+                String A = numberA.getText().toString();
+                String B = numberB.getText().toString();
+                if (A.equals("")){
+                    A = "0";
+                }
+                if (B.equals("")){
+                    B = "0";
+                }
+                Float a = Float.valueOf(A);
+                Float b = Float.valueOf(B);
+                Float num = a + b;
+                textRes.setText("= " + num.toString());
             }
         });
         buttonMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 textZnak.setText("-");
+                String A = numberA.getText().toString();
+                String B = numberB.getText().toString();
+                if (A.equals("")){
+                    A = "0";
+                }
+                if (B.equals("")){
+                    B = "0";
+                }
+                Float a = Float.valueOf(A);
+                Float b = Float.valueOf(B);
+                Float num = a - b;
+                textRes.setText("= " + num.toString());
             }
         });
         buttonD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 textZnak.setText("/");
+                String A = numberA.getText().toString();
+                String B = numberB.getText().toString();
+                if (A.equals("")){
+                    A = "0";
+                }
+                if (B.equals("")){
+                    B = "0";
+                }
+                Float a = Float.valueOf(A);
+                Float b = Float.valueOf(B);
+                if (b==0){
+                    textRes.setText("Ошибка");
+                }
+                else {
+                    Float num = a / b;
+                    textRes.setText("= " + num.toString());
+                }
             }
         });
         buttonY.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 textZnak.setText("*");
+                String A = numberA.getText().toString();
+                String B = numberB.getText().toString();
+                if (A.equals("")){
+                    A = "0";
+                }
+                if (B.equals("")){
+                    B = "0";
+                }
+                Float a = Float.valueOf(A);
+                Float b = Float.valueOf(B);
+                Float num = a * b;
+                textRes.setText("= " + num.toString());
+
             }
         });
         buttonDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 textZnak.setText("");
+                numberA.setText("");
+                numberB.setText("");
+                textRes.setText("");
             }
         });
 
